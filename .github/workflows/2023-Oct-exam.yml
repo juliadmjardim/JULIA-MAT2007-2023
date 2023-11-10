@@ -28,13 +28,13 @@ jobs:
     - name: Compile and Test Exercises
       run: |
         javac -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} exam/Exercise1.java exam/Exercise1Test.java
-        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam/Exercise1Test
+        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise1Test
         javac -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} exam/Exercise2.java exam/Exercise2Test.java
-        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam/Exercise2Test
+        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise2Test
         javac -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} exam/Exercise3.java exam/Exercise3Test.java
-        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam/Exercise3Test
+        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise3Test
         javac -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} exam/Exercise4.java exam/Exercise4Test.java
-        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam/Exercise4Test
+        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise4Test
       env:
         CLASSPATH_SEPARATOR: ${{ runner.os == 'Windows' && ';' || ':' }}
         JUNIT_JAR: junit-4.13.2.jar
