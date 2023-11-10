@@ -1,6 +1,3 @@
-# This workflow will build a Java project with Ant
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-ant
-
 name: Java CI
 
 on:
@@ -25,21 +22,41 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         
-    - name: Compile and Test Exercises
+
+    - name: Compile and Test Exercise1
       run: |
-        javac -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} exam/Exercise1.java exam/Exercise1Test.java
-        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise1Test
-        javac -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} exam/Exercise2.java exam/Exercise2Test.java
-        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise2Test
-        javac -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} exam/Exercise3.java exam/Exercise3Test.java
-        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise3Test
-        javac -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} exam/Exercise4.java exam/Exercise4Test.java
-        java -cp .:${{ env.JUNIT_JAR }}:${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise4Test
+        javac -cp .${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} exam/Exercise1.java exam/Exercise1Test.java
+        java -cp .${{ env.CLASSPATH_SEPARATOR }}exam${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise1Test
+      env:
+        CLASSPATH_SEPARATOR: ${{ runner.os == 'Windows' && ';' || ':' }}
+        JUNIT_JAR: junit-4.13.2.jar
+        HAMCREST_JAR: hamcrest-all-1.3.jar
+
+    - name: Compile and Test Exercise2
+      run: |
+        javac -cp .${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} exam/Exercise2.java exam/Exercise2Test.java
+        java -cp .${{ env.CLASSPATH_SEPARATOR }}exam${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise2Test
+      env:
+        CLASSPATH_SEPARATOR: ${{ runner.os == 'Windows' && ';' || ':' }}
+        JUNIT_JAR: junit-4.13.2.jar
+        HAMCREST_JAR: hamcrest-all-1.3.jar
+
+    - name: Compile and Test Exercise3
+      run: |
+        javac -cp .${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} exam/Exercise3.java exam/Exercise3Test.java
+        java -cp .${{ env.CLASSPATH_SEPARATOR }}exam${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise3Test
+      env:
+        CLASSPATH_SEPARATOR: ${{ runner.os == 'Windows' && ';' || ':' }}
+        JUNIT_JAR: junit-4.13.2.jar
+        HAMCREST_JAR: hamcrest-all-1.3.jar
+
+    - name: Compile and Test Exercise4
+      run: |
+        javac -cp .${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} exam/Exercise4.java exam/Exercise4Test.java
+        java -cp .${{ env.CLASSPATH_SEPARATOR }}exam${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore exam.Exercise4Test
       env:
         CLASSPATH_SEPARATOR: ${{ runner.os == 'Windows' && ';' || ':' }}
         JUNIT_JAR: junit-4.13.2.jar
         HAMCREST_JAR: hamcrest-all-1.3.jar
 
 
-
-        
