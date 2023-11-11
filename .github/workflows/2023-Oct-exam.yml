@@ -26,8 +26,8 @@ jobs:
     - name: Compile and Test Exercise1
       run: |
         cd exam
-        javac -cp .${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} Exercise1.java Exercise1Test.java
-        java -cp .${{ env.CLASSPATH_SEPARATOR }}exam${{ env.CLASSPATH_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}${{ env.HAMCREST_JAR }} org.junit.runner.JUnitCore Exercise1Test
+        javac -cp .${{ env.CLASSPATH_SEPARATOR }}junit-4.13.2.jar${{ env.CLASSPATH_SEPARATOR }}hamcrest-all-1.3.jar Exercise1.java Exercise1Test.java
+        java -cp .${{ env.CLASSPATH_SEPARATOR }}junit-4.13.2.jar${{ env.CLASSPATH_SEPARATOR }}hamcrest-all-1.3.jar org.junit.runner.JUnitCore Exercise1Test
       env:
         CLASSPATH_SEPARATOR: ${{ runner.os == 'Windows' && ';' || ':' }}
         JUNIT_JAR: junit-4.13.2.jar
