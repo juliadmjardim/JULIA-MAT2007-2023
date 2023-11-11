@@ -1,59 +1,43 @@
-// package exam;
-
-public class Exercise1{
-    public static boolean isSkewsymmetric(int[][] matrix){ 
-
-        // check if the matrix in input is null
-        if(matrix==null){
-            System.out.println("The imput matrix is null.");
+//Alicia del Prado Rebordinos – 6295981 - Exercise1
+public class Exercise1 {
+    public static boolean isSkewsymmetric(int[][] matrix) {
+        //If the input is null it will be returned false and the method code doesn't continue.
+        if (matrix == null){
+            System.out.println("The input matrix is null.");
             return false;
         }
-
-        // check if the matrix in input is valid (a square matrix)
-        if(!checkMatrix(matrix)){
-            System.out.println("The imput matrix is not a square matrix.");
-            return false; 
+        //The number of rows is counted and saved as a variable called r.
+        int r = matrix.length;
+       /*
+        Checks if the matrix is square i.e. the number of columns equals the number of rows.
+        It opens a loop that iterates through each row
+        and saves the number of columns as the length of that specific row.
+        If the number of columns doesn't equal the number of rows the matrix isn't square.
+        Otherwise the method code continues running.
+        */
+        for (int a=0; a<r; a++){
+            int c = matrix[a].length;
+            if (r != c){
+                System.out.println("The input matrix is not a square matrix.");
+                return false;
+            }
         }
-
-        // check for symmetry
-        int rows = matrix.length;
-        for(int i=0; i<rows; i++){
-            for(int j=i+1; j<rows; j++){ // optimizing the inner cycle to avoid cycling on the whole matrix
-                if(matrix[i][j]!=-matrix[j][i]){
-                    // if we find a cell which doesn't verify the property we return false
+        /*
+        Checks if the matrix is NOT skew-symmetric.
+        Opens two loops:
+        - Outer loop goes through the number of rows.
+        - Inner loop goes through the number of columns, measured by the number of integers on the first row.
+        Then it checks if the corresponding index in the matrix isn't equal to the negative opposite-positioned index.
+        If all the indexes in the matrix met this statement then the matrix would be skew-symmetric.
+         */
+        for (int a=0; a<r; a++){
+            for (int b=0; b<matrix[0].length; b++){
+                if (matrix[a][b] != -matrix[b][a]){
                     return false;
                 }
             }
         }
-
-        // if we finish the loop the symmetry is verified, hence we return true
+        //If the method hasn't returned false by now it means the matrix is skew-symmetric.
         return true;
-
-
-    }
-
-    private static boolean checkMatrix(int[][] matrix) {
-        int rows = matrix.length;
-        for(int i=0; i<rows; i++){
-            if(matrix[i].length != rows){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static void main(String[] args) {
-        int[][] matrix1 = null;
-        int[][] matrix2 = { { 1, 2, 3 }, { 4, 5, 6 } };
-        int[][] matrix3 = { { 0, 2, 3 }, { -2, 0, 6 }, { -3, -6, 0 } };
-        int[][] matrix4 = { { 0, -2, -3 }, { 2, 0, -8 }, { 3, 8, 0 } };
-        int[][] matrix5 = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
-        int[][] matrix6 = { { 1, 2, 3 }, { 8, 9, 8 }, { 3, 2 } };
-        System.out.println(isSkewsymmetric(matrix1));
-        System.out.println(isSkewsymmetric(matrix2));
-        System.out.println(isSkewsymmetric(matrix3));
-        System.out.println(isSkewsymmetric(matrix4));
-        System.out.println(isSkewsymmetric(matrix5));
-        System.out.println(isSkewsymmetric(matrix6));
     }
 }

@@ -1,18 +1,20 @@
-public class Car extends AbstractVehicle {
-
-    public Car(String licensePlate) {
-        super(licensePlate);
+//Alicia del Prado Rebordinos - 6295981 - Exercise4
+public class Car extends AbstractVehicle{
+    /*
+    Constructor to set the license plate.
+    Calls the constructor in ths super class 'AbstractVehicle'.
+     */
+    public Car(String license){
+        super(license);
     }
-
-    @Override
-    public boolean isOffroadCapable() {
+    //Implement all methods from the Vehicle interface.
+    public String getLicensePlate(){
+        return license;
+    }
+    public boolean isOffRoadCapable(){
         return false;
     }
-
-    @Override
-    public String fuelType() {
-        return "Petrol";
+    public String fuelType(){
+        return "gasoline";
     }
 }
-
-

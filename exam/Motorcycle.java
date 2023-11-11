@@ -1,16 +1,15 @@
-public class Motorcycle extends AbstractVehicle {
-
-    public Motorcycle(String licensePlate) {
-        super(licensePlate);
+//Alicia del Prado Rebordinos - 6295981 - Exercise4
+public class Motorcycle extends AbstractVehicle{
+    public Motorcycle(String license){
+        super(license);
     }
-
-    @Override
-    public boolean isOffroadCapable() {
+    public String getLicensePlate(){
+        return license;
+    }
+    public boolean isOffRoadCapable(){
         return true;
     }
-
-    @Override
-    public String fuelType() {
-        return "Petrol";
+    public String fuelType(){
+        return "gasoline";
     }
 }

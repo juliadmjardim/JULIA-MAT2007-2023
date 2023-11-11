@@ -1,17 +1,20 @@
-public abstract class AbstractVehicle implements Vehicle {
-    protected String licensePlate;
-
-    public AbstractVehicle(String licensePlate) {
-        if (licensePlate == null || licensePlate.trim().isEmpty()) {
-            throw new IllegalArgumentException("License plate cannot be null or empty.");
+//Alicia del Prado Rebordinos - 6295981 - Exercise4
+public abstract class AbstractVehicle implements Vehicle{
+    //String field for the license plate.
+    String license = getLicensePlate();
+    /*
+    Constructor to set the license plate.
+    If the license is null an error gets printed.
+     */
+    public AbstractVehicle(String license){
+        if (license == null){
+            System.out.println("An error ocurred: License plate cannot be null or empty.");
+        }else{
+            this.license=license;
         }
-        this.licensePlate = licensePlate;
     }
-
-    @Override
-    public String getLicensePlate() {
-        return licensePlate;
+    //Override the getter of the license plate.
+    public String getLicensePlate(){
+        return license;
     }
 }
-
-
