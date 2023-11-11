@@ -41,6 +41,7 @@ jobs:
         java -cp ".${{ env.CLASSPATH_SEPARATOR }}..${{ env.DIRECTORY_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}..${{ env.DIRECTORY_SEPARATOR }}${{ env.HAMCREST_JAR }}" org.junit.runner.JUnitCore Exercise2Test
       env:
         CLASSPATH_SEPARATOR: ${{ runner.os == 'Windows' && ';' || ':' }}
+        DIRECTORY_SEPARATOR: ${{ runner.os == 'Windows' && '\' || '/' }}
         JUNIT_JAR: junit-4.13.2.jar
         HAMCREST_JAR: hamcrest-all-1.3.jar
 
@@ -51,6 +52,7 @@ jobs:
         java -cp ".${{ env.CLASSPATH_SEPARATOR }}..${{ env.DIRECTORY_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}..${{ env.DIRECTORY_SEPARATOR }}${{ env.HAMCREST_JAR }}" org.junit.runner.JUnitCore Exercise3Test
       env:
         CLASSPATH_SEPARATOR: ${{ runner.os == 'Windows' && ';' || ':' }}
+        DIRECTORY_SEPARATOR: ${{ runner.os == 'Windows' && '\' || '/' }}
         JUNIT_JAR: junit-4.13.2.jar
         HAMCREST_JAR: hamcrest-all-1.3.jar
 
@@ -61,6 +63,7 @@ jobs:
         java -cp ".${{ env.CLASSPATH_SEPARATOR }}..${{ env.DIRECTORY_SEPARATOR }}${{ env.JUNIT_JAR }}${{ env.CLASSPATH_SEPARATOR }}..${{ env.DIRECTORY_SEPARATOR }}${{ env.HAMCREST_JAR }}" org.junit.runner.JUnitCore Exercise4Test
       env:
         CLASSPATH_SEPARATOR: ${{ runner.os == 'Windows' && ';' || ':' }}
+        DIRECTORY_SEPARATOR: ${{ runner.os == 'Windows' && '\' || '/' }}
         JUNIT_JAR: junit-4.13.2.jar
         HAMCREST_JAR: hamcrest-all-1.3.jar
 
